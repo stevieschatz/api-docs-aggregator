@@ -1,0 +1,39 @@
+image: docker:latest
+
+variables:
+# Version key/value should be on his own line
+  IMAGE_VERSION: $CI_COMMIT_TAG
+  IMAGE_NAME: TODO ADD IMAGE NAME
+
+stages:
+  - build
+  - deploy
+
+before_script:
+
+build:
+  stage: build
+  services:
+    - docker:dind
+  variables:
+    CI_DEBUG_TRACE: "true"
+  script:
+    - docker info
+    - docker build --no-cache --force-rm -t $IMAGE_NAME:$IMAGE_VERSION .
+    - docker push $IMAGE_NAME:$IMAGE_VERSION
+  only:
+    - tags
+
+deploy:
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    - apk update
+    - apk add curl
+    - "curl -X PUT -H Content-Type:application/json TODO add marathon url  -d@marathon.json"
+  environment:
+    name: staging
+    url: TODO ADD DEPLOYED URL
+  only:
+    - tags

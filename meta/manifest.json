@@ -1,0 +1,70 @@
+[
+  {
+    "name": "api-doc-aggregator",
+    "description": "API Docs for all Services",
+    "domains": [
+      "api-docs"
+    ],
+    "types": [
+      {
+        "type": "Service",
+        "name": "api-doc-aggregator",
+        "documentation": "Add docs here ",
+        "priority": "low",
+        "version": "0.0.2",
+        "callable": true,
+        "exposed": true,
+        "public": true
+      },
+      {
+        "type": "Docker",
+        "name": "docker repo",
+        "documentation": "To Add"
+      },
+      {
+        "type"          : "MarathonJob",
+        "name"          : "TODO ADD marathon path here",
+        "priority"      : "high",
+        "documentation" : "TODO ADD"
+      }
+    ],
+    "maintainers": [
+      {
+        "email": "stevieschatz91@gmail.com",
+        "name": "Stephen Schatzl",
+        "team": "stevieschatz",
+        "priority": 1
+      }
+    ],
+    "sources": [
+      {
+        "type": "Docker",
+        "name": "repo",
+        "version": "1.0.1",
+        "documentation": "TBA"
+      },
+      {
+        "type": "Repository",
+        "name": "TODO add repo name",
+        "url": "TODO ADD git repo",
+        "revision": "master",
+        "repotype": "git"
+      }
+    ],
+    "originates": [
+    ],
+    "patches": [
+    ],
+    "deletes": [
+    ],
+    "connections": [
+      {
+        "dependency": "required",
+        "type": "Consul"
+      }
+    ],
+    "additional": {},
+    "user" : 45821
+  }
+]
+

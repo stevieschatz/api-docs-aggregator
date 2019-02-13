@@ -1,0 +1,28 @@
+### JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+.idea
+.DS_Store
+.vscode
+
+### NodeJS
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+.ldrc
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# kube
+pod.yml

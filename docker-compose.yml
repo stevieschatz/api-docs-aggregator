@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "4200:4200"
+    environment:
+      DNSSERVERS: '[]'
+      CONSULOPTS: -retry-join consul
+      SERVICES: 'http://localhost:8500/v1/catalog/services'
+      SWAGGERLOCATION: 'TODO add swagger location for each service to be checked.api-docs/swagger.json'
+      SERVICEINFO: 'http://localhost:8500/v1/catalog/service/'
+      GREYLOGSERVICE: logger
+      GREYLOG: 9000
+  consul:
+    image: consul:1.0.7
+    command: agent -dev -client=0.0.0.0 -bind=0.0.0.0
+    ports:
+    - 8400:8400
+    - 8300:8300
+    - 8301:8301
+    - 8302:8302
+    - 8500:8500
+    - 8600:8600
+
+
+

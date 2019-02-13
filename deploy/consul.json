@@ -1,0 +1,32 @@
+{
+    "service": {
+      "id": "api-docs-aggregator",
+      "name": "api-docs",
+      "port": 4200,
+      "tags": [
+        "expose"
+      ],
+      "checks": [
+        {
+          "id": "check-api-docs",
+          "name": "api-docs service health check on http://localhost:4200/healthCheck",
+          "http": "http://localhost:4200/healthCheck",
+          "interval": "30s"
+        }
+      ]
+    },
+    "watches": [
+      { "type": "services",
+        "handler_type": "http",
+        "http_handler_config": {
+          "path":"http://localhost:4200/write",
+          "method": "GET",
+          "header": {"x-foo":["bar", "baz"]},
+          "timeout": "10s",
+          "tls_skip_verify": false
+          }
+      }
+    ]
+}
+
+

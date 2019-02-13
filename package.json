@@ -1,0 +1,39 @@
+{
+  "name": "api-docs-aggregator",
+  "version": "0.0.26",
+  "description": "Check consul services for api-docs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js",
+    "release:patch": "bash ./deploy/release.sh patch",
+    "release:minor": "bash ./deploy/release.sh minor",
+    "release:major": "bash ./deploy/release.sh major",
+    "tests": "NODE_ENV=test mocha tests/unit_tests.js --timeout 100000"
+  },
+  "author": "Stephen Schatzl",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "koa": "^2.5.1",
+    "koa-router": "^7.4.0",
+    "mocha": "^5.2.0",
+    "node-fetch": "^2.2.0",
+    "request": "^2.87.0",
+    "rxjs": "^6.3.3"
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.2",
+    "bunyan": "^1.8.12",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.2.0",
+    "chai-url": "^1.0.4",
+    "dotenv": "^6.1.0",
+    "gelf-stream": "^1.1.1",
+    "koa-logger": "^3.2.0",
+    "koa-send": "^5.0.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.4",
+    "nodemon": "^1.18.7"
+  }
+}

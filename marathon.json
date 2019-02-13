@@ -1,0 +1,61 @@
+{
+    "id": "/services/dockers/api-docs/api-docs",
+    "cmd": null,
+    "args": [],
+    "container": {
+      "type": "DOCKER",
+      "docker": {
+        "image" : "todo add your repos path",
+        "network": "BRIDGE",
+        "portMappings": [
+          {
+            "protocol": "tcp",
+            "servicePort": 0,
+            "hostPort": 0,
+            "containerPort": 4200
+          }
+        ],
+        "parameters": [
+          {
+            "key": "env-file",
+            "value": "/etc/dockerenv.cfg"
+          }
+        ]
+      }
+    },
+    "cpus": 0.2,
+    "mem": 256,
+    "instances": 2,
+    "backoffSeconds": 1,
+    "backoffFactor": 1.15,
+    "tasksRunning": 3,
+    "tasksStaged": 0,
+    "upgradeStrategy": {
+      "minimumHealthCapacity": 0.5
+    },
+    "healthChecks": [
+      {
+        "protocol": "COMMAND",
+        "command": {
+          "value": "/usr/local/bin/tk-health-check"
+        },
+        "gracePeriodSeconds": 300,
+        "intervalSeconds": 30,
+        "timeoutSeconds": 4,
+        "maxConsecutiveFailures": 2
+      },
+      {
+        "protocol": "HTTP",
+        "path": "/healthCheck",
+        "gracePeriodSeconds": 300,
+        "intervalSeconds": 30,
+        "timeoutSeconds": 4,
+        "maxConsecutiveFailures": 2,
+        "portIndex": 0
+      }
+    ],
+    "env": {
+      "PORT": "4200",
+      "NAME": "stage"
+    }
+  }
