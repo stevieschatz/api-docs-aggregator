@@ -1,4 +1,4 @@
-# Api-docs
+# api-docs-aggregator
 
 The 'api-docs' project is about giving your IT company the capability to see all internal api's swagger documentation.
 
